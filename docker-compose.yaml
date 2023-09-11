@@ -15,3 +15,22 @@ services:
     volumes:
       - ./postgres:/var/lib/postgresql/datass
       - ./db:/docker-entrypoint-initdb.d/
+    networks:
+      - etl_network
+  etl:
+    container_name: etl
+    build:
+      context: ./etl
+      args:
+        PG_DB: ${PG_DB}
+        PG_USER: ${PG_USER}
+        PG_HOST: ${PG_HOST}
+        PG_PW: ${PG_PW}
+        REPO: ${REPO}
+    depends_on:
+      - db
+    networks:
+      - etl_network
+
+networks:
+  etl_network: null
