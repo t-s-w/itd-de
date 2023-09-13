@@ -25,4 +25,4 @@ RUN pip install --no-cache-dir --default-timeout=100 -r requirements.txt
 
 COPY . .
 
-RUN python etl.py
+CMD ["python", "etl.py"]
