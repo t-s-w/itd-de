@@ -7,4 +7,8 @@ DROP TABLE IF EXISTS app.ft_commits;
     author VARCHAR(50) NOT NULL,
     datetime TIMESTAMP NOT NULL,
     message TEXT
-)
+);
+
+create index datetime on app.ft_commits (datetime);
+
+create index author on app.ft_commits using hash (author);
