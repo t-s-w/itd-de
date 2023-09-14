@@ -25,4 +25,9 @@ RUN pip install --no-cache-dir --default-timeout=100 -r requirements.txt
 
 COPY . .
 
-CMD ["python", "etl.py"]
+RUN pip install notebook
+RUN cd ./notebooks
+RUN python -m notebook
+RUN cd ..
+
+CMD python etl.py

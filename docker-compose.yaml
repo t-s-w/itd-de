@@ -34,3 +34,15 @@ services:
         condition: service_healthy
         restart: true
     restart: on-failure:10
+  notebook:
+    image: jupyter/base-notebook:latest
+    volumes:
+      - ./notebooks:/home/jovyan/
+    ports:
+      - "8888:8888"
+    container_name: notebook
+    environment:
+      JUPYTER_TOKEN: ${NOTEBOOK_PW}
+      DOCKER_STACKS_JUPYTER_CMD: notebook
+    depends_on:
+      - etl
