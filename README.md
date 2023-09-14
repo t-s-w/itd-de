@@ -2,7 +2,19 @@
 
 Take-home assignment for EDB ITD.
 
-## Requirements
+## Problem Task
+
+Given the Github API (https://docs.github.com/en/free-pro-team@latest/rest), create a simple ETL pipeline.
+
+For a particular repository, example Airflow (https://github.com/apache/airflow), pull in the commits over the last 6 months.
+
+With the data ingested, address the follow queries:
+
+- For the ingested commits, determine the top 5 committers ranked by count of commits and their number of commits.
+- For the ingested commits, determine the committer with the longest commit streak.
+- For the ingested commits, generate a heatmap of number of commits count by all users by day of the week and by 3 hour blocks.
+
+## System Requirements
 
 Docker must be installed on the system.
 
